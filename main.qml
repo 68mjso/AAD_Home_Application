@@ -1,6 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Window 2.14
-import "Utility.js" as Utility
+import "./JS/Utility.js" as Utility
 
 Window {
     width: 1920
@@ -13,6 +13,13 @@ Window {
         source: "qrc:/Img/bg_full.png"
     }
     Header{
+        id:header
+        anchors.left: parent.left
+        anchors.right: parent.right
+    }
+    WidgetArea{
+        id:widgetArea
+        anchors.top: header.bottom
         anchors.left: parent.left
         anchors.right: parent.right
     }

@@ -2,6 +2,8 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Header.qml</file>
-        <file>Utility.js</file>
+        <file>WidgetArea.qml</file>
+        <file>Component/Widget.qml</file>
+        <file>JS/Utility.js</file>
     </qresource>
 </RCC>

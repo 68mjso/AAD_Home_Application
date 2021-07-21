@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Window 2.14
-import "Utility.js" as Utility
+import "./JS/Utility.js" as Utility
 Item {
     id:header
     width: 1920
@@ -8,6 +8,7 @@ Item {
     anchors.left: parent.left
     property string date: Utility.getDate()
     property string time: Utility.getTime()
+    property bool isDisplay: false
     //Timer for clock
     Timer{
         interval: 1000
@@ -24,6 +25,7 @@ Item {
         height: parent.height
         color: "#00000000"
         MouseArea{
+            visible: isDisplay
             anchors.left: firstArea.left
             Image{
                 id: btnBack

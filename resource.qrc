@@ -6,5 +6,8 @@
         <file>Img/StatusBar/btn_top_back_n.png</file>
         <file>Img/StatusBar/btn_top_back_p.png</file>
         <file>Img/StatusBar/status_divider.png</file>
+        <file>Img/Widget/bg_widget_f.png</file>
+        <file>Img/Widget/bg_widget_p.png</file>
+        <file>Img/Map/car_icon.png</file>
     </qresource>
 </RCC>
