@@ -5,6 +5,7 @@ Item {
     property string time: ""
     function getTime(){
         var currentTime = Date.now();
+
     }
 
     MouseArea{
