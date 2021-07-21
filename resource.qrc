@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Img/bg_full.png</file>
+        <file>Img/StatusBar/btn_top_back_d.png</file>
+        <file>Img/StatusBar/btn_top_back_f.png</file>
+        <file>Img/StatusBar/btn_top_back_n.png</file>
+        <file>Img/StatusBar/btn_top_back_p.png</file>
+    </qresource>
+</RCC>
