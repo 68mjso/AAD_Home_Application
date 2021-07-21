@@ -1,5 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Window 2.14
+import "Utility.js" as Utility
 
 Window {
     width: 1920
@@ -11,5 +12,8 @@ Window {
         id: bg
         source: "qrc:/Img/bg_full.png"
     }
-    Header{}
+    Header{
+        anchors.left: parent.left
+        anchors.right: parent.right
+    }
 }

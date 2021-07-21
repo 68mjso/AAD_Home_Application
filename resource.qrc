@@ -5,5 +5,6 @@
         <file>Img/StatusBar/btn_top_back_f.png</file>
         <file>Img/StatusBar/btn_top_back_n.png</file>
         <file>Img/StatusBar/btn_top_back_p.png</file>
+        <file>Img/StatusBar/status_divider.png</file>
     </qresource>
 </RCC>
