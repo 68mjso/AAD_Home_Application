@@ -5,5 +5,11 @@
         <file>WidgetArea.qml</file>
         <file>Component/Widget.qml</file>
         <file>JS/Utility.js</file>
+        <file>MenuArea.qml</file>
+        <file>Component/MenuItem.qml</file>
+        <file>Widget/Climate.qml</file>
+        <file>Widget/Media.qml</file>
+        <file>Widget/Map.qml</file>
+        <file>App/AppMap.qml</file>
     </qresource>
 </RCC>

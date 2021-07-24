@@ -1,5 +1,7 @@
 import QtQuick 2.14
 import QtQuick.Window 2.14
+import QtQuick.Controls 2.12
+import MenuItemList 1.0
 import "./JS/Utility.js" as Utility
 
 Window {
@@ -17,10 +19,34 @@ Window {
         anchors.left: parent.left
         anchors.right: parent.right
     }
-    WidgetArea{
-        id:widgetArea
+    StackView{
+        id:appStackView
+        width: 1920
+        height:1096
         anchors.top: header.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
+        initialItem: Item{
+            WidgetArea{
+                id:widgetArea
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+            }
+            MenuArea{
+                id:menuArea
+                anchors.top: widgetArea.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+            }
+        }
+        pushExit: Transition {
+            XAnimator {
+                from: 0
+                to: -1920
+                duration: 200
+                easing.type: Easing.OutCubic
+            }
+        }
     }
+
+
 }
