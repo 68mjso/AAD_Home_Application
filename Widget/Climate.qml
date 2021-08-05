@@ -1,6 +1,44 @@
 import QtQuick 2.0
 import "../Component"
+
 Item{
+    function changeFanSpeed(){
+        if (climateModel.fan_level < 1) {
+            speedImg.source = "qrc:/Img/Climate/widget_climate_wind_level_01.png"
+        }
+        else if (climateModel.fan_level < 10) {
+            speedImg.source = "qrc:/Img/Climate/widget_climate_wind_level_0"+climateModel.fan_level+".png"
+        } else {
+            speedImg.source = "qrc:/Img/Climate/widget_climate_wind_level_"+climateModel.fan_level+".png"
+        }
+    }
+
+    function changeTemp(){
+        if (climateModel.driver_temp == 16.5) {
+            driverTemp.text = "LOW"
+        } else if (climateModel.driver_temp == 31.5) {
+            driverTemp.text = "HIGH"
+        } else {
+            driverTemp.text = climateModel.driver_temp+"°C"
+        }
+
+        if (climateModel.passenger_temp == 16.5) {
+            passengerTemp.text = "LOW"
+        } else if (climateModel.passenger_temp == 31.5) {
+            passengerTemp.text = "HIGH"
+        } else {
+            passengerTemp.text = climateModel.passenger_temp+"°C"
+        }
+    }
+
+    Connections{
+        target: climateModel
+        onDataChanged:{
+            changeFanSpeed();
+            changeTemp();
+        }
+    }
+
     z:0
     anchors.fill: parent
     Text{
@@ -122,7 +160,7 @@ Item{
             anchors.leftMargin: 30
             Text{
                 id:passengerTemp
-                text:"HIGH"
+                text:""
                 anchors.horizontalCenter: parent.horizontalCenter
                 color: "#fff"
                 font.pixelSize: 36
@@ -147,7 +185,7 @@ Item{
                 Text{
                     text: "AUTO"
                     font.pixelSize: 36
-                    color: "#fff"
+                    color: !climateModel.auto_mode ? "#fff" : "#ccc"
                     anchors.centerIn: parent
                 }
             }
@@ -185,7 +223,7 @@ Item{
                 Text{
                     text: "SYNC"
                     font.pixelSize: 36
-                    color: "#fff"
+                    color: !climateModel.sync_mode ? "#fff": "#ccc"
                     anchors.centerIn: parent
                 }
             }

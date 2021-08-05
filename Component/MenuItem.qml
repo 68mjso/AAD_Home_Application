@@ -1,26 +1,23 @@
 import QtQuick 2.0
-
-MouseArea {
-    width: 306
-    height: 480
+Item {
+    id: root
     property string img_normal: ""
-    property string img_press: ""
-    property string img_focus: ""
+    property string name: ""
+    property alias img_source: itemImg.source
     Image{
         id:itemImg
         anchors.fill: parent
         source: img_normal
+        z:0
     }
-    onPressed: {
-        itemImg.source = img_press
-    }
-    onReleased: {
-        itemImg.source = img_normal
-    }
-    onExited: {
-        itemImg.source = img_normal
-    }
-    onCanceled: {
-        itemImg.source = img_normal
+    Text{
+        id:itemName
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: name
+        color: "#fff"
+        font.pixelSize: 36
+        anchors.topMargin: 380
+        z:1
     }
 }

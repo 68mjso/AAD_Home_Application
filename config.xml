@@ -1,0 +1,32 @@
+<APPLICATIONS>
+        <APP>
+                <TITLE>Map</TITLE>
+                <URL>qrc:/App/AppEmpty.qml</URL>
+                <ICON>qrc:/Img/Menu/btn_home_menu_map</ICON>
+        </APP>
+        <APP>
+                <TITLE>Video</TITLE>
+                <URL>qrc:/App/AppEmpty.qml</URL>
+                <ICON>qrc:/Img/Menu/btn_home_menu_climate</ICON>
+        </APP>
+        <APP>
+                <TITLE>Media</TITLE>
+                <URL>qrc:/App/AppEmpty.qml</URL>
+                <ICON>qrc:/Img/Menu/btn_home_menu_media</ICON>
+        </APP>
+        <APP>
+                <TITLE>Phone</TITLE>
+                <URL>qrc:/App/AppEmpty.qml</URL>
+                <ICON>qrc:/Img/Menu/btn_home_menu_phone</ICON>
+        </APP>
+        <APP>
+                <TITLE>Radio</TITLE>
+                <URL>qrc:/App/AppEmpty.qml</URL>
+                <ICON>qrc:/Img/Menu/btn_home_menu_radio</ICON>
+        </APP>
+        <APP>
+                <TITLE>Settings</TITLE>
+                <URL>qrc:/App/AppEmpty.qml</URL>
+                <ICON>qrc:/Img/Menu/btn_home_menu_settings</ICON>
+        </APP>
+</APPLICATIONS>

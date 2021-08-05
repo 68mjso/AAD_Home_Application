@@ -3,15 +3,23 @@ import QtQuick.Controls 2.5
 import "./Component"
 import "./Widget"
 
-Item {
+Rectangle {
     width: 1920
     height: 570
+    color: "#00000000"
+    function openApplication(url){
+        appWindow.displayBack = true;
+        appStackView.push([url]);
+    }
     Widget{
         id:mapWidget
         anchors.left: parent.left
         anchors.topMargin: 12
         anchors.leftMargin: 12
         Map{}
+        onClickedWidget:{
+            openApplication("qrc:/App/AppMap.qml");
+        }
     }
     Widget{
         id:climateWidget

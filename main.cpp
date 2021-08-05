@@ -3,6 +3,8 @@
 #include <QQmlContext>
 #include "menuitem.h"
 #include "menuitemmodel.h"
+#include "xmlreader.h"
+#include "climatemodel.h"
 
 
 int main(int argc, char *argv[])
@@ -22,7 +24,8 @@ int main(int argc, char *argv[])
     MenuItem *menuItem = new MenuItem();
     engine.rootContext()->setContextProperty(QStringLiteral("menuItem"),menuItem);
 
-
+    ClimateModel climate;
+    engine.rootContext()->setContextProperty("climateModel",&climate);
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {

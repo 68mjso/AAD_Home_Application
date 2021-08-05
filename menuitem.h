@@ -3,13 +3,24 @@
 
 #include <QObject>
 #include <QVector>
+#include <QtXml>
 
 struct Item{
     QString title;
     QString img_normal;
     QString img_focus;
     QString img_press;
+    QString app_url;
 };
+
+struct WriteItem{
+    QString title;
+    QString url;
+    QString icon;
+};
+
+Q_DECLARE_METATYPE(WriteItem);
+
 
 class MenuItem : public QObject
 {
@@ -18,6 +29,8 @@ public:
     explicit MenuItem(QObject *parent = nullptr);
     void addItem(Item item);
     QVector<Item> getMenuItem();
+    void setMenuItem(QVector<Item> list);
+    Q_INVOKABLE void writeXml(QVariantList list);
 signals:
 
 private:

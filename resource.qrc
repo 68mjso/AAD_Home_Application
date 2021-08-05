@@ -41,5 +41,6 @@
         <file>Img/Climate/widget_climate_wind_level_09.png</file>
         <file>Img/Climate/widget_climate_wind_level_10.png</file>
         <file>Img/Climate/widget_climate_wind_level_bg.png</file>
+        <file>config.xml</file>
     </qresource>
 </RCC>

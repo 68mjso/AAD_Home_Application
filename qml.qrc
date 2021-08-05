@@ -11,5 +11,8 @@
         <file>Widget/Media.qml</file>
         <file>Widget/Map.qml</file>
         <file>App/AppMap.qml</file>
+        <file>App/AppEmpty.qml</file>
+        <file>App/AppMedia.qml</file>
+        <file>App/AppClimate.qml</file>
     </qresource>
 </RCC>

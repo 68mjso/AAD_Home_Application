@@ -5,10 +5,14 @@ import MenuItemList 1.0
 import "./JS/Utility.js" as Utility
 
 Window {
+    id: appWindow
     width: 1920
     height: 1200
     visible: true
     title: qsTr("Home Application")
+
+    property bool displayBack: false
+
     Image {
         anchors.fill: parent
         id: bg
@@ -18,24 +22,35 @@ Window {
         id:header
         anchors.left: parent.left
         anchors.right: parent.right
+        isDisplay: displayBack
+        onBackClicked:{
+            appStackView.pop();
+            displayBack = false;
+        }
     }
     StackView{
         id:appStackView
         width: 1920
         height:1096
         anchors.top: header.bottom
-        initialItem: Item{
-            WidgetArea{
-                id:widgetArea
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.right: parent.right
-            }
-            MenuArea{
-                id:menuArea
-                anchors.top: widgetArea.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
+        initialItem: Component{
+            id:root
+            Rectangle{
+                width: 1920
+                height:1096
+                color: "#00000000"
+                WidgetArea{
+                    id:widgetArea
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                }
+                MenuArea{
+                    id:menuArea
+                    anchors.top: widgetArea.bottom
+                    anchors.left: widgetArea.left
+                    anchors.right: widgetArea.right
+                }
             }
         }
         pushExit: Transition {

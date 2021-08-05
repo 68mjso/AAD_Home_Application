@@ -17,7 +17,8 @@ public:
         TitleRole = Qt::UserRole + 1,
         NormalRole,
         FocusRole,
-        PressRole
+        PressRole,
+        AppUrlRole
     };
 
     // Basic functionality:

@@ -44,6 +44,8 @@ QVariant MenuItemModel::data(const QModelIndex &index, int role) const
         return QVariant(item.img_focus);
     case PressRole:
         return QVariant(item.img_press);
+    case AppUrlRole:
+        return QVariant(item.app_url);
     }
     // FIXME: Implement me!
     return QVariant();
@@ -56,6 +58,7 @@ QHash<int, QByteArray> MenuItemModel::roleNames() const
     names[NormalRole] = "normal_img";
     names[FocusRole] = "focus_img";
     names[PressRole]="press_img";
+    names[AppUrlRole] = "app_url";
     return names;
 }
 

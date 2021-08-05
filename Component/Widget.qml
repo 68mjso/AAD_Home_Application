@@ -5,6 +5,7 @@ MouseArea {
     width: 624
     height: 546
     property string imgSrc: ""
+    signal clickedWidget();
     Image{
         z:1
         id:widget_n
@@ -18,5 +19,9 @@ MouseArea {
 
     onReleased:{
         imgSrc = ""
+    }
+
+    onClicked: {
+        clickedWidget();
     }
 }

@@ -6,9 +6,14 @@ Item {
     width: 1920
     height: 104
     anchors.left: parent.left
+
     property string date: Utility.getDate()
     property string time: Utility.getTime()
-    property bool isDisplay: false
+
+    property alias isDisplay: firstArea.visible
+
+    signal backClicked();
+
     //Timer for clock
     Timer{
         interval: 1000
@@ -19,19 +24,29 @@ Item {
             time = Utility.getTime();
         }
     }
-    Rectangle{
+    MouseArea{
         id: firstArea
         width: 760
         height: parent.height
-        color: "#00000000"
-        MouseArea{
-            visible: isDisplay
-            anchors.left: firstArea.left
-            Image{
-                id: btnBack
-                source: "qrc:/Img/StatusBar/btn_top_back_n.png"
-            }
+        anchors.left: parent.left
+        Image{
+            id: btnBack
+            source: "qrc:/Img/StatusBar/btn_top_back_n.png"
         }
+        onPressed: {
+           btnBack.source = "qrc:/Img/StatusBar/btn_top_back_p.png"
+        }
+        onClicked: {
+            btnBack.source = "qrc:/Img/StatusBar/btn_top_back_n.png"
+            backClicked();
+        }
+        onCanceled: {
+            btnBack.source = "qrc:/Img/StatusBar/btn_top_back_p.png"
+        }
+        onReleased: {
+            btnBack.source = "qrc:/Img/StatusBar/btn_top_back_n.png"
+        }
+
     }
     Image{
         id:headDivider
@@ -51,8 +66,6 @@ Item {
             text: date
             font.pixelSize: 48
         }
-
-
     }
     Image{
         id:midDivider
