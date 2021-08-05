@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>Header.qml</file>
         <file>WidgetArea.qml</file>
         <file>Component/Widget.qml</file>
         <file>JS/Utility.js</file>
@@ -14,5 +13,6 @@
         <file>App/AppEmpty.qml</file>
         <file>App/AppMedia.qml</file>
         <file>App/AppClimate.qml</file>
+        <file>Header.qml</file>
     </qresource>
 </RCC>
