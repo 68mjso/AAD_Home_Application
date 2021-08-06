@@ -1,4 +1,4 @@
-QT += quick dbus xml
+QT += quick dbus xml multimedia
 
 CONFIG += c++11
 
@@ -13,6 +13,8 @@ SOURCES += \
         main.cpp \
         menuitem.cpp \
         menuitemmodel.cpp \
+        song.cpp \
+        songlistmodel.cpp \
         xmlreader.cpp
 
 RESOURCES += \
@@ -32,10 +34,14 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 QT += xml
 
+LIBS += -ltag
+
 HEADERS += \
     climatemodel.h \
     menuitem.h \
     menuitemmodel.h \
+    song.h \
+    songlistmodel.h \
     xmlreader.h
 
 DISTFILES += \

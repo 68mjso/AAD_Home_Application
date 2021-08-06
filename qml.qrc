@@ -14,5 +14,7 @@
         <file>App/AppMedia.qml</file>
         <file>App/AppClimate.qml</file>
         <file>Header.qml</file>
+        <file>Component/ButtonControl.qml</file>
+        <file>Component/SwitchButton.qml</file>
     </qresource>
 </RCC>
