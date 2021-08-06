@@ -31,6 +31,29 @@ Item{
         }
     }
 
+    function getDriverTemp(){
+        var text = "";
+        if (climateModel.driver_temp == 16.5) {
+            text = "LOW"
+        } else if (climateModel.driver_temp == 31.5) {
+            text = "HIGH"
+        } else {
+            text = climateModel.driver_temp+"°C"
+        }
+        return text;
+    }
+    function getPassengerTemp(){
+        var text = "";
+        if (climateModel.passenger_temp == 16.5) {
+            text = "LOW"
+        } else if (climateModel.passenger_temp == 31.5) {
+            text = "HIGH"
+        } else {
+            text = climateModel.passenger_temp+"°C"
+        }
+        return text;
+    }
+
     Connections{
         target: climateModel
         onDataChanged:{
@@ -76,6 +99,25 @@ Item{
                 anchors.topMargin: 30
                 source: "qrc:/Img/Climate/seat.png"
             }
+            Image{
+                id:driverDirectionUpper
+                width: parent.width
+                height: 150
+                anchors.top: driverLabel.bottom
+                anchors.topMargin: 30
+                source: climateModel.driver_wind_mode == 0 || climateModel.driver_wind_mode == 2 ?
+                            "qrc:/Img/Climate/widget_climate_arrow_01_s_b.png" : ""
+
+            }
+            Image{
+                id:driverDirectionLower
+                width: parent.width
+                height: 150
+                anchors.top: driverLabel.bottom
+                anchors.topMargin: 30
+                source: climateModel.driver_wind_mode == 1 || climateModel.driver_wind_mode == 2 ?
+                            "qrc:/Img/Climate/widget_climate_arrow_02_s_b.png" : ""
+            }
         }
         Rectangle{
             id:widgetSpeed
@@ -116,6 +158,25 @@ Item{
                 anchors.topMargin: 30
                 source: "qrc:/Img/Climate/seat.png"
             }
+            Image{
+                id:passengerDirectionUpper
+                width: parent.width
+                height: 150
+                anchors.top: passengerLabel.bottom
+                anchors.topMargin: 30
+                source: climateModel.passenger_wind_mode == 0 || climateModel.passenger_wind_mode == 2 ?
+                            "qrc:/Img/Climate/widget_climate_arrow_01_s_b.png" : ""
+
+            }
+            Image{
+                id:passengerDirectionLower
+                width: parent.width
+                height: 150
+                anchors.top: passengerLabel.bottom
+                anchors.topMargin: 30
+                source: climateModel.passenger_wind_mode == 1 || climateModel.passenger_wind_mode == 2 ?
+                            "qrc:/Img/Climate/widget_climate_arrow_02_s_b.png" : ""
+            }
         }
     }
     Item{
@@ -130,7 +191,7 @@ Item{
             anchors.leftMargin: 25
             Text{
                 id:driverTemp
-                text:"HIGH"
+                text:getDriverTemp()
                 anchors.horizontalCenter: parent.horizontalCenter
                 color: "#fff"
                 font.pixelSize: 36
@@ -160,7 +221,7 @@ Item{
             anchors.leftMargin: 30
             Text{
                 id:passengerTemp
-                text:""
+                text:getPassengerTemp()
                 anchors.horizontalCenter: parent.horizontalCenter
                 color: "#fff"
                 font.pixelSize: 36
