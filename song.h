@@ -1,6 +1,8 @@
 #ifndef SONG_H
 #define SONG_H
 
+#include "songlistmodel.h"
+
 #include <QObject>
 #include <QVector>
 #include <QMediaPlayer>
@@ -57,6 +59,7 @@ public:
     Q_INVOKABLE void stop();
     Q_INVOKABLE void playIndex(qint64 index);
     Q_INVOKABLE QString convertTime(qint64 time);
+    Q_INVOKABLE int getMediaIndex();
 
 public slots:
     void switchRepeat();

@@ -4,8 +4,9 @@ import QtQuick.Layouts 1.1
 import QtMultimedia 5.8
 import SongList 1.0
 import '../Component'
+import '../JS/Utility.js' as Utility
 Item {
-    id: root
+    id: appMedia
     width: 1920
     height: 1096
     signal onClickRepeat();
@@ -19,10 +20,10 @@ Item {
         }
     }
 
-    Component.onCompleted: {
-        songPlayerList.currentIndexChanged.connect(changeIndex);
-        songPlayer.play();
-    }
+//    Component.onCompleted: {
+//        songPlayerList.currentIndexChanged.connect(changeIndex);
+//        songPlayer.play();
+//    }
 
 
     //Backgroud of Application
@@ -80,7 +81,8 @@ Item {
                 font.pixelSize: 32
             }
             onClicked: {
-                mediaPlaylist.currentIndex = index
+                mediaPlaylist.currentIndex = index;
+                songList.playIndex(mediaPlaylist.currentIndex);
             }
             onPressed: {
                 playlistItem.source = "qrc:/Img/Media/hold.png"
@@ -111,7 +113,6 @@ Item {
             anchors.bottom: mediaPlaylist.bottom
         }
         onCurrentItemChanged: {
-            songList.playIndex(mediaPlaylist.currentIndex);
             album_art_view.currentIndex = currentIndex;
         }
     }
@@ -162,7 +163,7 @@ Item {
         anchors.topMargin: 23
         anchors.right: audioCount.left
         anchors.rightMargin: 10
-        source: "qrc:/Image/music.png"
+        source: "qrc:/Img/Media/music.png"
     }
 
     Component {
@@ -195,9 +196,7 @@ Item {
         preferredHighlightBegin: 0.5
         preferredHighlightEnd: 0.5
         focus: true
-        model: SonglistModel{
-            list: songList
-        }
+        model: songListModel
         delegate: appDelegate
         pathItemCount: 3
         path: Path {
@@ -315,6 +314,7 @@ Item {
         icon_released: "qrc:/Img/Media/prev.png"
         onClicked: {
             songList.prev();
+            mediaPlaylist.currentIndex = songList.getMediaIndex();
         }
     }
     ButtonControl {
@@ -338,6 +338,7 @@ Item {
         icon_released: "qrc:/Img/Media/next.png"
         onClicked: {
             songList.next();
+            mediaPlaylist.currentIndex = songList.getMediaIndex();
         }
     }
     SwitchButton {

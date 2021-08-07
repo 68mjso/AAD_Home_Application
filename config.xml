@@ -11,7 +11,7 @@
         </APP>
         <APP>
                 <TITLE>Media</TITLE>
-                <URL>qrc:/App/AppEmpty.qml</URL>
+                <URL>qrc:/App/AppMedia.qml</URL>
                 <ICON>qrc:/Img/Menu/btn_home_menu_media</ICON>
         </APP>
         <APP>

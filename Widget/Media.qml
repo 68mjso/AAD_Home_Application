@@ -1,12 +1,19 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
+import SongList 1.0
+import "../JS/Utility.js" as Utility
 
 Item{
+    id:widgetMedia
     z:0
     anchors.fill: parent
+    Component.onCompleted: {
+      console.log(songListModel.data(songPlayerList.currentIndex,0))
+    }
+
     Image{
         id:mediaBg
-        source: "qrc:/Img/Media/cover_art.jpg"
+        source: appMedia.album_art_view.source
         anchors.fill: parent
         opacity: 0.3
     }
@@ -25,7 +32,7 @@ Item{
         anchors.topMargin: 40
         width: 250
         height: 250
-        source: "qrc:/Img/Media/cover_art.jpg"
+        source: songList.getCurrentSong().albumCover
         anchors.horizontalCenter: parent.horizontalCenter
     }
     Text{
@@ -35,7 +42,7 @@ Item{
         anchors.horizontalCenter: parent.horizontalCenter
         font.pixelSize: 30
         color: "#fff"
-        text:"Artist"
+        text:songList.getCurrentSong().artist
     }
     Text{
         id:mediaTitle
@@ -44,7 +51,7 @@ Item{
         anchors.horizontalCenter: parent.horizontalCenter
         font.pixelSize: 36
         color: "#fff"
-        text:"Title"
+        text:songList.getCurrentSong().title
     }
     ProgressBar{
         id:mediaSlider
@@ -52,6 +59,6 @@ Item{
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: mediaTitle.bottom
         width: 500
-        value: 0.5
+        value: songPlayer.position / songPlayer.duration
     }
 }

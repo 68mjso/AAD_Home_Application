@@ -89,6 +89,7 @@ void Song::next()
 {
     if(m_playlist->currentIndex() < mItems.length()-1 || isShuffle){
         m_playlist->next();
+//        this->playIndex(m_playlist->currentIndex());
     }
 
 }
@@ -97,6 +98,7 @@ void Song::prev()
 {
     if(m_playlist->currentIndex() > 0){
         m_playlist->previous();
+//        this->playIndex(m_playlist->currentIndex());
     }
 
 }
@@ -120,6 +122,13 @@ QString Song::convertTime(qint64 time)
     QString minuteStr = minute < 10 ? ("0" + QString::number(minute,10)):QString::number(minute,10);
     return minuteStr + ":" + secondStr;
 }
+
+int Song::getMediaIndex()
+{
+    return this->m_playlist->currentIndex();
+}
+
+
 
 void Song::switchRepeat()
 {
@@ -219,7 +228,7 @@ QString Song::getAlbumArt(QUrl url)
     else
     {
         qDebug() <<"id3v2 not present";
-        return "qrc:/Image/album_art.png";
+        return "qrc:/Img/Media/album_art.png";
     }
-    return "qrc:/Image/album_art.png";
+    return "qrc:/Img/Media/album_art.png";
 }

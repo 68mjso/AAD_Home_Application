@@ -27,6 +27,9 @@ Rectangle {
         anchors.topMargin: 12
         anchors.leftMargin: 12
         Climate{}
+        onClickedWidget:{
+            openApplication("qrc:/App/AppClimate.qml");
+        }
     }
     Widget{
         id:mediaWidget
@@ -34,5 +37,8 @@ Rectangle {
         anchors.topMargin: 12
         anchors.leftMargin: 12
         Media{}
+        onClickedWidget:{
+            openApplication("qrc:/App/AppMedia.qml");
+        }
     }
 }

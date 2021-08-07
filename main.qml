@@ -3,6 +3,7 @@ import QtQuick.Window 2.14
 import QtQuick.Controls 2.12
 import MenuItemList 1.0
 import "./JS/Utility.js" as Utility
+import SongList 1.0
 
 Window {
     id: appWindow
@@ -12,6 +13,11 @@ Window {
     title: qsTr("Home Application")
 
     property bool displayBack: false
+
+    SonglistModel{
+        id:songListModel
+        list: songList
+    }
 
     Image {
         anchors.fill: parent

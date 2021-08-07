@@ -41,3 +41,10 @@ function getTime(){
     var minuteStr = getNumString(new Date().getMinutes());
     return hourStr+":"+minuteStr;
 }
+
+function getSong(){
+    var title = songList.getCurrentTitle();
+    var artist = songList.getCurrentArtist();
+    var cover = songList.getCurrentCover();
+    return {title:title,artist:artist,cover:cover};
+}
