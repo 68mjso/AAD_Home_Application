@@ -27,7 +27,7 @@ Drawer {
                 id: playlistItem
                 width: 675
                 height: 193
-                source: "qrc:/App/Media/Image/playlist.png"
+                source: "qrc:/Img/Media/playlist.png"
                 opacity: 0.5
             }
             Text {
@@ -43,19 +43,19 @@ Drawer {
             }
 
             onPressed: {
-                playlistItem.source = "qrc:/App/Media/Image/hold.png"
+                playlistItem.source = "qrc:/Img/Media/hold.png"
             }
             onReleased: {
-                playlistItem.source = "qrc:/App/Media/Image/playlist.png"
+                playlistItem.source = "qrc:/Img/Media/playlist.png"
             }
         }
         highlight: Image {
-            source: "qrc:/App/Media/Image/playlist_item.png"
+            source: "qrc:/Img/Media/playlist_item.png"
             Image {
                 anchors.left: parent.left
                 anchors.leftMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
-                source: "qrc:/App/Media/Image/playing.png"
+                source: "qrc:/Img/Media/playing.png"
             }
         }
         ScrollBar.vertical: ScrollBar {

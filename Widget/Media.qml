@@ -1,19 +1,18 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
-import SongList 1.0
-import "../JS/Utility.js" as Utility
+import QtQuick.Controls.Styles 1.4
 
 Item{
     id:widgetMedia
     z:0
     anchors.fill: parent
     Component.onCompleted: {
-      console.log(songListModel.data(songPlayerList.currentIndex,0))
+        console.log(songListModel.data(songPlayerList.currentIndex,0))
     }
 
     Image{
         id:mediaBg
-        source: appMedia.album_art_view.source
+        source: myModel.data(myModel.index(player.playlist.currentIndex,0), 260)
         anchors.fill: parent
         opacity: 0.3
     }
@@ -32,7 +31,7 @@ Item{
         anchors.topMargin: 40
         width: 250
         height: 250
-        source: songList.getCurrentSong().albumCover
+        source: myModel.data(myModel.index(player.playlist.currentIndex,0), 260)
         anchors.horizontalCenter: parent.horizontalCenter
     }
     Text{
@@ -42,16 +41,16 @@ Item{
         anchors.horizontalCenter: parent.horizontalCenter
         font.pixelSize: 30
         color: "#fff"
-        text:songList.getCurrentSong().artist
+        text:myModel.data(myModel.index(player.playlist.currentIndex,0), 258)
     }
     Text{
         id:mediaTitle
         anchors.top: mediaArtist.bottom
-        anchors.topMargin: 40
+        anchors.topMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
         font.pixelSize: 36
         color: "#fff"
-        text:songList.getCurrentSong().title
+        text:myModel.data(myModel.index(player.playlist.currentIndex,0), 257)
     }
     ProgressBar{
         id:mediaSlider
@@ -59,6 +58,10 @@ Item{
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: mediaTitle.bottom
         width: 500
-        value: songPlayer.position / songPlayer.duration
+        value: player.position / player.duration
+        contentItem: Rectangle{
+            color:'#34e8eb'
+            width: mediaSlider.width * player.position / player.duration
+        }
     }
 }

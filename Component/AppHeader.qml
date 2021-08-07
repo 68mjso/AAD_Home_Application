@@ -5,14 +5,14 @@ Item {
     signal clickPlaylistButton
     Image {
         id: headerItem
-        source: "qrc:/App/Media/Image/title.png"
+        source: "qrc:/Img/Media/title.png"
         SwitchButton {
             id: playlist_button
             anchors.left: parent.left
             anchors.leftMargin: 20
             anchors.verticalCenter: parent.verticalCenter
-            icon_off: "qrc:/App/Media/Image/drawer.png"
-            icon_on: "qrc:/App/Media/Image/back.png"
+            icon_off: "qrc:/Img/Media/drawer_p.png"
+            icon_on: "qrc:/Img/Media/back.png"
             onClicked: {
                 clickPlaylistButton()
             }

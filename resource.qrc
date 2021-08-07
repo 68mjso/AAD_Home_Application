@@ -70,5 +70,7 @@
         <file>Img/Media/shuffle.png</file>
         <file>Img/Media/shuffle-1.png</file>
         <file>Img/Media/title.png</file>
+        <file>Img/Media/drawer_p.png</file>
+        <file>Img/Media/back.png</file>
     </qresource>
 </RCC>

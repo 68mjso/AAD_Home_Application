@@ -49,7 +49,7 @@ Item {
         anchors.topMargin: 23
         anchors.right: audioCount.left
         anchors.rightMargin: 10
-        source: "qrc:/App/Media/Image/music.png"
+        source: "qrc:/Img/Media/music.png"
     }
 
     Component {
@@ -143,10 +143,10 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             x: progressBar.leftPadding + progressBar.visualPosition * (progressBar.availableWidth - width)
             y: progressBar.topPadding + progressBar.availableHeight / 2 - height / 2
-            source: "qrc:/App/Media/Image/point.png"
+            source: "qrc:/Img/Media/point.png"
             Image {
                 anchors.centerIn: parent
-                source: "qrc:/App/Media/Image/center_point.png"
+                source: "qrc:/Img/Media/center_point.png"
             }
         }
         onMoved: {
@@ -171,8 +171,8 @@ Item {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 120
         anchors.left: currentTime.left
-        icon_off: "qrc:/App/Media/Image/shuffle.png"
-        icon_on: "qrc:/App/Media/Image/shuffle-1.png"
+        icon_off: "qrc:/Img/Media/shuffle.png"
+        icon_on: "qrc:/Img/Media/shuffle-1.png"
         status: player.playlist.playbackMode === Playlist.Random ? 1 : 0
         onClicked: {
             console.log(player.playlist.playbackMode)
@@ -188,9 +188,9 @@ Item {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 120
         anchors.right: play.left
-        icon_default: "qrc:/App/Media/Image/prev.png"
-        icon_pressed: "qrc:/App/Media/Image/hold-prev.png"
-        icon_released: "qrc:/App/Media/Image/prev.png"
+        icon_default: "qrc:/Img/Media/prev.png"
+        icon_pressed: "qrc:/Img/Media/hold-prev.png"
+        icon_released: "qrc:/Img/Media/prev.png"
         onClicked: {
             player.playlist.previous()
         }
@@ -199,9 +199,9 @@ Item {
         id: play
         anchors.verticalCenter: prev.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
-        icon_default: player.state == MediaPlayer.PlayingState ?  "qrc:/App/Media/Image/pause.png" : "qrc:/App/Media/Image/play.png"
-        icon_pressed: player.state == MediaPlayer.PlayingState ?  "qrc:/App/Media/Image/hold-pause.png" : "qrc:/App/Media/Image/hold-play.png"
-        icon_released: player.state== MediaPlayer.PlayingState ?  "qrc:/App/Media/Image/pause.png" : "qrc:/App/Media/Image/play.png"
+        icon_default: player.state == MediaPlayer.PlayingState ?  "qrc:/Img/Media/pause.png" : "qrc:/Img/Media/play.png"
+        icon_pressed: player.state == MediaPlayer.PlayingState ?  "qrc:/Img/Media/hold-pause.png" : "qrc:/Img/Media/hold-play.png"
+        icon_released: player.state== MediaPlayer.PlayingState ?  "qrc:/Img/Media/pause.png" : "qrc:/Img/Media/play.png"
         onClicked: {
             if (player.state != MediaPlayer.PlayingState){
                 player.play()
@@ -212,7 +212,7 @@ Item {
         Connections {
             target: player
             onStateChanged:{
-                play.source = player.state == MediaPlayer.PlayingState ?  "qrc:/App/Media/Image/pause.png" : "qrc:/App/Media/Image/play.png"
+                play.source = player.state == MediaPlayer.PlayingState ?  "qrc:/Img/Media/pause.png" : "qrc:/Img/Media/play.png"
             }
         }
     }
@@ -221,9 +221,9 @@ Item {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 120
         anchors.left: play.right
-        icon_default: "qrc:/App/Media/Image/next.png"
-        icon_pressed: "qrc:/App/Media/Image/hold-next.png"
-        icon_released: "qrc:/App/Media/Image/next.png"
+        icon_default: "qrc:/Img/Media/next.png"
+        icon_pressed: "qrc:/Img/Media/hold-next.png"
+        icon_released: "qrc:/Img/Media/next.png"
         onClicked: {
             player.playlist.next()
         }
@@ -233,8 +233,8 @@ Item {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 120
         anchors.right: totalTime.right
-        icon_on: "qrc:/App/Media/Image/repeat1_hold.png"
-        icon_off: "qrc:/App/Media/Image/repeat.png"
+        icon_on: "qrc:/Img/Media/repeat1_hold.png"
+        icon_off: "qrc:/Img/Media/repeat.png"
         status: player.playlist.playbackMode === Playlist.Loop ? 1 : 0
         onClicked: {
             console.log(player.playlist.playbackMode)

@@ -110,7 +110,7 @@ QString Player::getAlbumArt(QUrl url)
     else
     {
         qDebug() <<"id3v2 not present";
-        return "qrc:/App/Media/Image/album_art.png";
+        return "qrc:/Img/Media/album_art.png";
     }
-    return "qrc:/App/Media/Image/album_art.png";
+    return "qrc:/Img/Media/album_art.png";
 }
