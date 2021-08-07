@@ -13,8 +13,8 @@ SOURCES += \
         main.cpp \
         menuitem.cpp \
         menuitemmodel.cpp \
-        song.cpp \
-        songlistmodel.cpp \
+        player.cpp \
+        playlistmodel.cpp \
         xmlreader.cpp
 
 RESOURCES += \
@@ -40,8 +40,8 @@ HEADERS += \
     climatemodel.h \
     menuitem.h \
     menuitemmodel.h \
-    song.h \
-    songlistmodel.h \
+    player.h \
+    playlistmodel.h \
     xmlreader.h
 
 DISTFILES += \

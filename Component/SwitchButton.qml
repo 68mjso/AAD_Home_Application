@@ -11,11 +11,4 @@ MouseArea {
         id: img
         source: root.status === 0 ? icon_off : icon_on
     }
-//    onClicked: {
-//        if (root.status == 0){
-//            root.status = 1
-//        } else {
-//            root.status = 0
-//        }
-//    }
 }

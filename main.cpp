@@ -5,8 +5,9 @@
 #include "menuitemmodel.h"
 #include "xmlreader.h"
 #include "climatemodel.h"
-#include "songlistmodel.h"
-#include "song.h"
+
+#include "playlistmodel.h"
+#include "player.h"
 
 
 int main(int argc, char *argv[])
@@ -14,24 +15,19 @@ int main(int argc, char *argv[])
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
-
+    qRegisterMetaType<QMediaPlaylist*>("QMediaPlaylist*");
     QGuiApplication app(argc, argv);
-
-    qmlRegisterType<SonglistModel>("SongList",1,0,"SonglistModel");
-    qmlRegisterUncreatableType<Song>("SongList" ,1,0,"Song",QString("reason"));
 
     qmlRegisterType<MenuItemModel>("MenuItemList",1,0,"MenuItemModel");
     qmlRegisterUncreatableType<MenuItem>("MenuItemList",1,0,"Item",QString("reason"));
 
-
-
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
 
-    Song* songList = new Song();
-    engine.rootContext()->setContextProperty(QStringLiteral("songList"),songList);
-    engine.rootContext()->setContextProperty(QStringLiteral("songPlayer"),songList->player());
-    engine.rootContext()->setContextProperty(QStringLiteral("songPlayerList"),songList->playlist());
+    Player player;
+    engine.rootContext()->setContextProperty("myModel",player.m_playlistModel);
+    engine.rootContext()->setContextProperty("player",player.m_player);
+    engine.rootContext()->setContextProperty("utility",&player);
 
     MenuItem *menuItem = new MenuItem();
     engine.rootContext()->setContextProperty(QStringLiteral("menuItem"),menuItem);
