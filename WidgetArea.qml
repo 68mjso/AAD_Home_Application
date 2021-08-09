@@ -16,6 +16,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.topMargin: 12
         anchors.leftMargin: 12
+        isFocus: appWindow.focusItem == 1
         Map{}
         onClickedWidget:{
             openApplication("qrc:/App/AppMap.qml");
@@ -26,6 +27,7 @@ Rectangle {
         anchors.left: mapWidget.right
         anchors.topMargin: 12
         anchors.leftMargin: 12
+        isFocus: appWindow.focusItem == 2
         Climate{}
         onClickedWidget:{
             openApplication("qrc:/App/AppClimate.qml");
@@ -36,6 +38,7 @@ Rectangle {
         anchors.left: climateWidget.right
         anchors.topMargin: 12
         anchors.leftMargin: 12
+        isFocus: appWindow.focusItem == 3
         Media{}
         onClickedWidget:{
             openApplication("qrc:/App/AppMedia.qml");

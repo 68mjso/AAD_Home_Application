@@ -11,6 +11,8 @@ Window {
     visible: true
     title: qsTr("Home Application")
     property bool displayBack: false
+    property int focusItem :0
+    property int itemCount: 3 + menuItem.getItemCount()
     Image {
         anchors.fill: parent
         id: bg
@@ -24,6 +26,7 @@ Window {
         onBackClicked:{
             appStackView.pop();
             displayBack = false;
+            focusItem = 0;
         }
     }
     StackView{
@@ -37,6 +40,20 @@ Window {
                 width: 1920
                 height:1096
                 color: "#00000000"
+                KeyNavigation.left:{
+                   --focusItem;
+                    if(focusItem < 0){
+                        focusItem = itemCount;
+                    }
+                }
+
+                KeyNavigation.right: {
+                    ++focusItem;
+                    if(focusItem > itemCount){
+                        focusItem = 0;
+                    }
+                }
+
                 WidgetArea{
                     id:widgetArea
                     anchors.top: parent.top

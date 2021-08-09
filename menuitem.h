@@ -31,6 +31,7 @@ public:
     QVector<Item> getMenuItem();
     void setMenuItem(QVector<Item> list);
     Q_INVOKABLE void writeXml(QVariantList list);
+    Q_INVOKABLE qint64 getItemCount();
 signals:
 
 private:

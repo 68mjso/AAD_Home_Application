@@ -66,6 +66,7 @@ Rectangle {
             }
 
             MenuItem{
+                property bool isFocus: false
                 id: content
                 width: 306
                 height: 480
@@ -75,7 +76,7 @@ Rectangle {
                     verticalCenter: parent.verticalCenter
                 }
 
-                img_source: img_status == 1?press_img:normal_img
+                img_source:isFocus? focus_img :img_status == 1?press_img:normal_img
 
                 img_normal:normal_img
 
