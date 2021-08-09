@@ -6,10 +6,6 @@ Item{
     id:widgetMedia
     z:0
     anchors.fill: parent
-    Component.onCompleted: {
-        console.log(songListModel.data(songPlayerList.currentIndex,0))
-    }
-
     Image{
         id:mediaBg
         source: myModel.data(myModel.index(player.playlist.currentIndex,0), 260)

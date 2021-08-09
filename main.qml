@@ -12,7 +12,8 @@ Window {
     title: qsTr("Home Application")
     property bool displayBack: false
     property int focusItem :0
-    property int itemCount: 3 + menuItem.getItemCount()
+    property int itemCount: 3 + menuItem.getItemCount();
+
     Image {
         anchors.fill: parent
         id: bg
@@ -40,20 +41,23 @@ Window {
                 width: 1920
                 height:1096
                 color: "#00000000"
-                KeyNavigation.left:{
-                   --focusItem;
-                    if(focusItem < 0){
-                        focusItem = itemCount;
+                focus:true
+                Keys.onPressed: {
+                    console.log("key pressed")
+                    if(event.key === Qt.Key_Left){
+                        --focusItem;
+                        if(focusItem < 0){
+                            focusItem = itemCount;
+                        }
+                        console.log(focusItem)
+                    }else if(event.key === Qt.Key_Right){
+                        ++focusItem;
+                        if(focusItem > itemCount){
+                            focusItem = 0;
+                        }
+                        console.log(focusItem)
                     }
                 }
-
-                KeyNavigation.right: {
-                    ++focusItem;
-                    if(focusItem > itemCount){
-                        focusItem = 0;
-                    }
-                }
-
                 WidgetArea{
                     id:widgetArea
                     anchors.top: parent.top

@@ -11,7 +11,7 @@ MouseArea {
         z:1
         id:widget_n
         anchors.fill: parent
-        source: focused?"qrc:/Img/Widget/bg_widget_f.png" :imgSrc
+        source: isFocus?"qrc:/Img/Widget/bg_widget_f.png" :imgSrc
     }
 
     onPressed: {
