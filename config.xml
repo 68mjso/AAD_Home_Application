@@ -29,4 +29,9 @@
                 <URL>qrc:/App/AppEmpty.qml</URL>
                 <ICON>qrc:/Img/Menu/btn_home_menu_settings</ICON>
         </APP>
+        <APP>
+                <TITLE>Settings 2</TITLE>
+                <URL>qrc:/App/AppEmpty.qml</URL>
+                <ICON>qrc:/Img/Menu/btn_home_menu_settings</ICON>
+        </APP>
 </APPLICATIONS>

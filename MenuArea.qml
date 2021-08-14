@@ -2,7 +2,7 @@ import QtQuick 2.14
 import MenuItemList 1.0
 import QtQuick.Window 2.14
 import QtQuick.Layouts 1.11
-import QtQuick.Controls 2.4
+import QtQuick.Controls 2.12
 import QtQml.Models 2.1
 import "./Component"
 
@@ -11,7 +11,6 @@ Rectangle {
     width: 1920
     height:526
     color: "#00000000"
-
     function openApplication(url){
         appWindow.displayBack = true;
         appStackView.push([url]);
@@ -39,7 +38,7 @@ Rectangle {
             property bool held: false
             property int img_status : 0
             width: 306
-            height: 480
+            height: 526
 
             drag.target: held ? content : undefined
             drag.axis: Drag.XAxis
@@ -64,9 +63,7 @@ Rectangle {
             onCanceled: {
                 img_status = 0;
             }
-
             MenuItem{
-                property bool isFocus: false
                 id: content
                 width: 306
                 height: 480
@@ -76,7 +73,7 @@ Rectangle {
                     verticalCenter: parent.verticalCenter
                 }
 
-                img_source:isFocus? focus_img :img_status == 1?press_img:normal_img
+                img_source: appWindow.focusItem == 4+index ? focus_img :img_status == 1?press_img: normal_img
 
                 img_normal:normal_img
 
@@ -129,8 +126,17 @@ Rectangle {
             NumberAnimation { properties: "x,y"; easing.type: Easing.OutQuad }
         }
         model: listAppModel
+        ScrollBar.horizontal: ScrollBar{
+            parent: listApp.parent
+          //  width: 200
+            //active: true
+            anchors.left:parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            stepSize: 0.5
+        }
     }
 
 
-}
 
+}

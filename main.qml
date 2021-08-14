@@ -14,6 +14,11 @@ Window {
     property int focusItem :0
     property int itemCount: 3 + menuItem.getItemCount();
 
+    function openApplication(url){
+        appWindow.displayBack = true;
+        appStackView.push([url]);
+    }
+
     Image {
         anchors.fill: parent
         id: bg
@@ -38,10 +43,15 @@ Window {
         initialItem: Component{
             id:root
             Rectangle{
+                id: mainArea
                 width: 1920
                 height:1096
                 color: "#00000000"
                 focus:true
+                Component.onCompleted: {
+                    mainArea.forceActiveFocus();
+                }
+
                 Keys.onPressed: {
                     console.log("key pressed")
                     if(event.key === Qt.Key_Left){
@@ -56,6 +66,23 @@ Window {
                             focusItem = 0;
                         }
                         console.log(focusItem)
+                    }else if(event.key === Qt.Key_Enter){
+                        if(focusItem > 0){
+                            switch(focusItem){
+                            case 1:
+                                openApplication("qrc:/App/AppMap.qml");
+                                break;
+                            case 2:
+                                 openApplication("qrc:/App/AppClimate.qml");
+                                break;
+                            case 3:
+                                openApplication("qrc:/App/AppMedia.qml");
+                                break;
+                            default:
+                                break;
+                            }
+                        }
+
                     }
                 }
                 WidgetArea{

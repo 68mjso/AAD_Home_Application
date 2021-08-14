@@ -24,29 +24,33 @@ Item {
             time = Utility.getTime();
         }
     }
-    MouseArea{
+    Rectangle{
         id: firstArea
         width: 760
         height: parent.height
         anchors.left: parent.left
+        color: "#00000000"
         Image{
             id: btnBack
             source: "qrc:/Img/StatusBar/btn_top_back_n.png"
-        }
-        onPressed: {
-           btnBack.source = "qrc:/Img/StatusBar/btn_top_back_p.png"
-        }
-        onClicked: {
-            btnBack.source = "qrc:/Img/StatusBar/btn_top_back_n.png"
-            backClicked();
-        }
-        onCanceled: {
-            btnBack.source = "qrc:/Img/StatusBar/btn_top_back_p.png"
-        }
-        onReleased: {
-            btnBack.source = "qrc:/Img/StatusBar/btn_top_back_n.png"
-        }
+            MouseArea{
+                anchors.fill: parent;
+                onPressed: {
+                   btnBack.source = "qrc:/Img/StatusBar/btn_top_back_p.png"
+                }
+                onClicked: {
+                    btnBack.source = "qrc:/Img/StatusBar/btn_top_back_n.png"
+                    backClicked();
+                }
+                onCanceled: {
+                    btnBack.source = "qrc:/Img/StatusBar/btn_top_back_p.png"
+                }
+                onReleased: {
+                    btnBack.source = "qrc:/Img/StatusBar/btn_top_back_n.png"
+                }
 
+            }
+        }
     }
     Image{
         id:headDivider
