@@ -15,7 +15,6 @@ Window {
     property int itemCount: 3 + menuItem.getItemCount();
 
     function openApplication(url){
-        focusItem = 0;
         appWindow.displayBack = true;
         appStackView.push([url]);
     }
@@ -59,20 +58,35 @@ Window {
                         if(focusItem < 0){
                             focusItem = itemCount;
                         }
-
                     }else if(event.key === Qt.Key_Right){
                         ++focusItem;
                         if(focusItem > itemCount){
                             focusItem = 0;
                         }
-                    }
-                    if(focusItem >9){
-                       menuArea.menuAreaList.currentIndex = itemCount-4;
-                    }else{
-                        menuArea.menuAreaList.currentIndex = 0;
+                    }else if(event.key == Qt.EnterKeyDefault){
+                        console.log("enter")
+                        if(focusItem > 0){
+                            switch(focusItem){
+                            case 1:
+                                openApplication("qrc:/App/AppMap.qml");
+                                break;
+                            case 2:
+                                 openApplication("qrc:/App/AppClimate.qml");
+                                break;
+                            case 3:
+                                openApplication("qrc:/App/AppMedia.qml");
+                                break;
+                            default:
+                                var url = menuItem.getURL(focusItem-4);
+                                openApplication(url);
+                                break;
+                            }
+                        }
+
                     }
                 }
                 Keys.onReturnPressed: {
+                    console.log("enter")
                     if(focusItem > 0){
                         switch(focusItem){
                         case 1:
@@ -86,6 +100,7 @@ Window {
                             break;
                         default:
                             var url = menuItem.getURL(focusItem-4);
+                            console.log('url',url)
                             openApplication(url);
                             break;
                         }

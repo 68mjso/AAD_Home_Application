@@ -76,3 +76,8 @@ qint64 MenuItem::getItemCount()
 {
     return this->mItems.count();
 }
+
+QString MenuItem::getURL(qint64 index)
+{
+    return this->mItems.at(index).app_url;
+}

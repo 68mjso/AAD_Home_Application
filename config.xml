@@ -1,12 +1,12 @@
 <APPLICATIONS>
         <APP>
                 <TITLE>Map</TITLE>
-                <URL>qrc:/App/AppEmpty.qml</URL>
+                <URL>qrc:/App/AppMap.qml</URL>
                 <ICON>qrc:/Img/Menu/btn_home_menu_map</ICON>
         </APP>
         <APP>
                 <TITLE>Video</TITLE>
-                <URL>qrc:/App/AppEmpty.qml</URL>
+                <URL>qrc:/App/AppClimate.qml</URL>
                 <ICON>qrc:/Img/Menu/btn_home_menu_climate</ICON>
         </APP>
         <APP>
@@ -15,23 +15,23 @@
                 <ICON>qrc:/Img/Menu/btn_home_menu_media</ICON>
         </APP>
         <APP>
+                <TITLE>Clock</TITLE>
+                <URL>qrc:/App/AppClock.qml</URL>
+                <ICON>qrc:/Img/Menu/btn_home_menu_clock</ICON>
+        </APP>
+        <APP>
                 <TITLE>Phone</TITLE>
-                <URL>qrc:/App/AppEmpty.qml</URL>
+                <URL>qrc:/App/AppPhone.qml</URL>
                 <ICON>qrc:/Img/Menu/btn_home_menu_phone</ICON>
         </APP>
         <APP>
                 <TITLE>Radio</TITLE>
-                <URL>qrc:/App/AppEmpty.qml</URL>
+                <URL>qrc:/App/AppRadio.qml</URL>
                 <ICON>qrc:/Img/Menu/btn_home_menu_radio</ICON>
         </APP>
         <APP>
                 <TITLE>Settings</TITLE>
-                <URL>qrc:/App/AppEmpty.qml</URL>
-                <ICON>qrc:/Img/Menu/btn_home_menu_settings</ICON>
-        </APP>
-        <APP>
-                <TITLE>Settings 2</TITLE>
-                <URL>qrc:/App/AppEmpty.qml</URL>
+                <URL>qrc:/App/AppSetting.qml</URL>
                 <ICON>qrc:/Img/Menu/btn_home_menu_settings</ICON>
         </APP>
 </APPLICATIONS>

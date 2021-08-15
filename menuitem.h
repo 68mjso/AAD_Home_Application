@@ -23,6 +23,7 @@ public:
     void setMenuItem(QVector<Item> list);
     Q_INVOKABLE void writeXml(QVariantList list);
     Q_INVOKABLE qint64 getItemCount();
+    Q_INVOKABLE QString getURL(qint64 index);
 signals:
 
 private:

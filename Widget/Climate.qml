@@ -266,7 +266,7 @@ Item{
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             Text{
-                text: "Text"
+                text: ""
                 font.pixelSize: 24
                 color: "#fff"
                 anchors.bottom: parent.bottom

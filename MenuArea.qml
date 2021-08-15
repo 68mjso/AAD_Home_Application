@@ -7,6 +7,7 @@ import QtQml.Models 2.1
 import "./Component"
 
 Rectangle {
+    property alias menuAreaList:listApp
     id:menuArea
     width: 1920
     height:526
@@ -122,6 +123,8 @@ Rectangle {
         anchors.fill: parent
         orientation: Qt.Horizontal
         spacing:12
+        highlightFollowsCurrentItem: true
+        highlightMoveDuration: 0
         displaced: Transition {
             NumberAnimation { properties: "x,y"; easing.type: Easing.OutQuad }
         }

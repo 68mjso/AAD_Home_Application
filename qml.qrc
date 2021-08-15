@@ -19,5 +19,9 @@
         <file>Component/AppHeader.qml</file>
         <file>Component/MediaInfoControl.qml</file>
         <file>Component/PlaylistView.qml</file>
+        <file>App/AppPhone.qml</file>
+        <file>App/AppClock.qml</file>
+        <file>App/AppSetting.qml</file>
+        <file>App/AppRadio.qml</file>
     </qresource>
 </RCC>
