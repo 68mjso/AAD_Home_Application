@@ -13,15 +13,6 @@ struct Item{
     QString app_url;
 };
 
-struct WriteItem{
-    QString title;
-    QString url;
-    QString icon;
-};
-
-Q_DECLARE_METATYPE(WriteItem);
-
-
 class MenuItem : public QObject
 {
     Q_OBJECT
