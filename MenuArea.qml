@@ -57,8 +57,9 @@ Rectangle {
                 img_status = 0;
             }
             onClicked: {
+                appWindow.focusArea = 1;
+                appWindow.focusItem = index;
                 openApplication(app_url)
-                writeData();
             }
 
             onCanceled: {
@@ -74,7 +75,7 @@ Rectangle {
                     verticalCenter: parent.verticalCenter
                 }
 
-                img_source: appWindow.focusItem == 4+index ? focus_img :img_status == 1?press_img: normal_img
+                img_source: img_status == 1?press_img: appWindow.focusItem == index && appWindow.focusArea == 1 ? focus_img : normal_img
 
                 img_normal:normal_img
 
@@ -123,6 +124,7 @@ Rectangle {
         anchors.fill: parent
         orientation: Qt.Horizontal
         spacing:12
+        snapMode: ListView.SnapToItem
         highlightFollowsCurrentItem: true
         highlightMoveDuration: 0
         displaced: Transition {

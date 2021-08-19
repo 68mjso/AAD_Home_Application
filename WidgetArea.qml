@@ -16,7 +16,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.topMargin: 12
         anchors.leftMargin: 12
-        isFocus: appWindow.focusItem == 1
+        isFocus: appWindow.focusItem == 0 && appWindow.focusArea == 0
         anchors.verticalCenter: parent.verticalCenter
         Map{}
         onClickedWidget:{
@@ -28,7 +28,7 @@ Rectangle {
         anchors.left: mapWidget.right
         anchors.topMargin: 12
         anchors.leftMargin: 12
-        isFocus: appWindow.focusItem == 2
+        isFocus: appWindow.focusItem == 1 && appWindow.focusArea == 0
         anchors.verticalCenter: parent.verticalCenter
         Climate{}
         onClickedWidget:{
@@ -40,7 +40,7 @@ Rectangle {
         anchors.left: climateWidget.right
         anchors.topMargin: 12
         anchors.leftMargin: 12
-        isFocus: appWindow.focusItem == 3
+        isFocus: appWindow.focusItem == 2 && appWindow.focusArea == 0
         anchors.verticalCenter: parent.verticalCenter
         Media{}
         onClickedWidget:{

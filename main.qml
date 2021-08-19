@@ -12,7 +12,8 @@ Window {
     title: qsTr("Home Application")
     property bool displayBack: false
     property int focusItem :0
-    property int itemCount: 3 + menuItem.getItemCount();
+    property int focusArea: 0
+    property int itemCount: menuItem.getItemCount();
 
     function openApplication(url){
         focusItem = 0;
@@ -54,20 +55,42 @@ Window {
                 }
 
                 Keys.onPressed: {
-                    if(event.key === Qt.Key_Left){
+                    switch(event.key){
+                    case Qt.Key_Left:
                         --focusItem;
-                        if(focusItem < 0){
-                            focusItem = itemCount;
+                        if(focusArea == 0){
+                            if(focusItem < 0){
+                                focusItem = 2;
+                            }
+                        }else{
+                            if(focusItem <0){
+                                focusItem = itemCount-1;
+                            }
                         }
-
-                    }else if(event.key === Qt.Key_Right){
+                        break;
+                    case Qt.Key_Right:
                         ++focusItem;
-                        if(focusItem > itemCount){
-                            focusItem = 0;
+                        if(focusArea == 0){
+                            if(focusItem > 2){
+                                focusItem = 0;
+                            }
+                        }else{
+                            if(focusItem > itemCount-1){
+                                focusItem = 0;
+                            }
                         }
+                        break;
+                    case Qt.Key_Up:
+                        focusArea = focusArea == 0 ? 1 : 0;
+                        focusItem = 0;
+                        break;
+                    case Qt.Key_Down:
+                        focusArea = focusArea == 1 ? 0 : 1;
+                        focusItem = 0;
+                        break;
                     }
-                    if(focusItem >9){
-                       menuArea.menuAreaList.currentIndex = itemCount-4;
+                    if(focusArea == 1 && focusItem > 5){
+                        menuArea.menuAreaList.currentIndex = focusItem;
                     }else{
                         menuArea.menuAreaList.currentIndex = 0;
                     }
@@ -79,7 +102,7 @@ Window {
                             openApplication("qrc:/App/AppMap.qml");
                             break;
                         case 2:
-                             openApplication("qrc:/App/AppClimate.qml");
+                            openApplication("qrc:/App/AppClimate.qml");
                             break;
                         case 3:
                             openApplication("qrc:/App/AppMedia.qml");
