@@ -8,6 +8,7 @@ import "./Component"
 
 Rectangle {
     property alias menuAreaList:listApp
+    property alias menuModel: listAppModel
     id:menuArea
     width: 1920
     height:526
@@ -27,7 +28,6 @@ Rectangle {
             var icon = item.normal_img.substr(0,item.normal_img.length - 6);
 //            list.push({title:title,url:url,icon:icon});
              list.push([title,url,icon]);
-
         }
         menuItem.writeXml(list);
 
@@ -45,21 +45,24 @@ Rectangle {
             drag.axis: Drag.XAxis
 
             onPressAndHold: {
-                held = true
+                held = true;
             }
 
             onPressed: {
-                img_status = 1
+                img_status = 1;
+                appWindow.focusArea = 1;
+                appWindow.focusItem = dragArea.DelegateModel.itemsIndex;
             }
 
             onReleased: {
                 held = false;
                 img_status = 0;
+                appWindow.focusItem = dragArea.DelegateModel.itemsIndex;
             }
             onClicked: {
                 appWindow.focusArea = 1;
-                appWindow.focusItem = index;
-                openApplication(app_url)
+                appWindow.focusItem = dragArea.DelegateModel.itemsIndex;
+                openApplication(app_url);
             }
 
             onCanceled: {
@@ -75,7 +78,11 @@ Rectangle {
                     verticalCenter: parent.verticalCenter
                 }
 
-                img_source: img_status == 1?press_img: appWindow.focusItem == index && appWindow.focusArea == 1 ? focus_img : normal_img
+                img_source: img_status == 1?
+                                press_img:
+                                appWindow.focusItem == dragArea.DelegateModel.itemsIndex && appWindow.focusArea == 1 ?
+                                    focus_img :
+                                    normal_img
 
                 img_normal:normal_img
 
@@ -103,7 +110,8 @@ Rectangle {
                 onEntered: {
                     listAppModel.items.move(
                                 drag.source.DelegateModel.itemsIndex,
-                                dragArea.DelegateModel.itemsIndex)
+                                dragArea.DelegateModel.itemsIndex);
+                    appWindow.focusItem = dragArea.DelegateModel.itemsIndex;
                     writeData();
                 }
             }

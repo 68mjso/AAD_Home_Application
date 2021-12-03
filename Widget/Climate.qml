@@ -262,7 +262,6 @@ Item{
                 font.pixelSize: 24
                 color: "#fff"
                 anchors.top: parent.top
-                anchors.topMargin: 5
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             Text{

@@ -70,6 +70,7 @@ void MenuItem::writeXml(QVariantList list)
     }
     file.flush();
     file.close();
+
 }
 
 qint64 MenuItem::getItemCount()

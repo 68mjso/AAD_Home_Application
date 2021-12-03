@@ -16,7 +16,6 @@ Window {
     property int itemCount: menuItem.getItemCount();
 
     function openApplication(url){
-        focusItem = 0;
         appWindow.displayBack = true;
         appStackView.push([url]);
     }
@@ -34,7 +33,6 @@ Window {
         onBackClicked:{
             appStackView.pop();
             displayBack = false;
-            focusItem = 0;
         }
     }
     StackView{
@@ -96,22 +94,23 @@ Window {
                     }
                 }
                 Keys.onReturnPressed: {
-                    if(focusItem > 0){
+                    if(focusArea == 0){
                         switch(focusItem){
-                        case 1:
+                        case 0:
                             openApplication("qrc:/App/AppMap.qml");
                             break;
-                        case 2:
+                        case 1:
                             openApplication("qrc:/App/AppClimate.qml");
                             break;
-                        case 3:
+                        case 2:
                             openApplication("qrc:/App/AppMedia.qml");
                             break;
                         default:
-                            var url = menuItem.getURL(focusItem-4);
-                            openApplication(url);
                             break;
                         }
+                    }else{
+                        var url = menuArea.menuModel.items.get(focusItem).model.app_url;
+                        openApplication(url);
                     }
                 }
 

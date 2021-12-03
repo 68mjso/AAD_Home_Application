@@ -64,10 +64,10 @@ Item {
         anchors.left: headDivider.right
         color: "#00000000"
         Text{
-            id:dateArea
+            id:timeArea
             color: "#fff"
             anchors.centerIn: parent
-            text: date
+            text: time
             font.pixelSize: 48
         }
     }
@@ -83,10 +83,10 @@ Item {
         anchors.left: midDivider.right
         color: "#00000000"
         Text{
-            id:timeArea
+            id:dateArea
             color: "#fff"
             anchors.centerIn: parent
-            text: time
+            text: date
             font.pixelSize: 48
         }
     }
